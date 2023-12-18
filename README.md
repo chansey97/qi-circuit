@@ -29,6 +29,8 @@ A large circuit can be constructed by combining small circuits. Qi-circuit curre
 
   ![image-20231218051729154](image-20231218051729154.png)
 
+  Convolution circuit.
+
 - `(c-reg init)` 
 
   ![image-20231218092559434](image-20231218092559434.png)
