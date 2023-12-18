@@ -1,9 +1,7 @@
 # Catalan numbers
 
-[Power series, power serious](https://www.cambridge.org/core/journals/journal-of-functional-programming/article/power-series-power-serious/19863F4EAACC33E1E01DE2A2114EC7DF) introduces Catalan numbers via solving the generating function equation:
-$$
-T = 1 + x T^2
-$$
+[Power series, power serious](https://www.cambridge.org/core/journals/journal-of-functional-programming/article/power-series-power-serious/19863F4EAACC33E1E01DE2A2114EC7DF) introduces Catalan numbers via solving the generating function equation $T = 1 + x T^2$.
+
 This equation can be transladted to the circuit.
 
 ![image-20231218090708479](figures/image-20231218090708479.png)
