@@ -28,10 +28,10 @@ We would have two observations.
 
    Racket will raise an error. The reasons are:
 
-   1. Racket is a [strict programming language](https://en.wikipedia.org/wiki/Strict_programming_language), where `sf` is executed from left to right. When `(c-add +)` is evaluated, its inputs must be from a known stream (at least one head).
-   2. The `(c-reg 0)` represents a register, which emits a value 0 at moment 0 to `(c-add +)` and not to `(< _ _)`, hence it must be on the left side of `(c-add +)`.
+   1. Racket is a [strict programming language](https://en.wikipedia.org/wiki/Strict_programming_language), where `sf` is executed from left to right. When `(c-add +)` is evaluated, its inputs must be a known stream (at least one head).
+   2. The `(c-reg 0)` represents a register, at moment 0, it emits a value `0` to `(c-add +)`, not to `(< _ _)`! So it must be on the left side of `(c-add +)`.
 
-   Therefore, for any diagram like the second one, you can safely slide the `(c-reg 0)` to the left. They are equivalent circuits.
+   In fact, for any diagram like the second one, you can safely slide the `(c-reg 0)` to the left. They are equivalent circuits.
 
 - The 2nd observation is that the  `sf-4.17` essentially corresponds to the following code:
 
