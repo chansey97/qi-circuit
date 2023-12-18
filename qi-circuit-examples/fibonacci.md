@@ -12,11 +12,15 @@ Similarly, we must translated it into an equivalent circuit.
 
 step-1
 
-![image-20231218064006159](figures/image-20231218064006159.png)
+![image-20231219042051296](figures/image-20231219042051296.png)
 
 step-2
 
-![image-20231218064119564](figures/image-20231218064119564.png)
+![image-20231219042218664](image-20231219042218664.png)
+
+step-3
+
+![image-20231219042406285](figures/image-20231219042406285.png)
 
 ```
 (define-flow sf
