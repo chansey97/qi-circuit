@@ -22,15 +22,18 @@ step-3
 
 ![image-20231219042406285](figures/image-20231219042406285.png)
 
+step-4
+
+![image-20231219092304710](figures/image-20231219092304710.png)
+
 ```
 (define-flow sf
-  (~>> (c-loop (~>> (== _ (~> (c-reg 0) (c-mul 1)))
+  (~>> (c-loop (~>> (== _ (c-reg 0))
                     (c-add +)
-                    (c-loop (~>> (== _ (~> (c-reg 0) (c-mul 1))) (c-add +) (-< _ _)))
+                    (c-loop (~>> (== _ (c-reg 0)) (c-add +) (-< _ _)))
                     (c-reg 0)
-                    (-< _ _)))
-       (c-mul 1)))
-       
+                    (-< _ _)))))
+
 (define fib ((☯ sf) one)) 
 (probe (~>> (fib) (stream-take _ 20) stream->list))
 ;; '(0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181)

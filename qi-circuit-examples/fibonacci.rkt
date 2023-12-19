@@ -30,28 +30,13 @@
 ;; The generating function is X / (1 - X - X^2), so r0=0, r1=1, s0=1, s1=-1, s2=-1
 
 (define-flow sf
-  (~>> (c-loop (~>> (== _ (~> (c-reg 0) (c-mul 1)))
+  (~>> (c-loop (~>> (== _ (c-reg 0))
                     (c-add +)
-                    (c-loop (~>> (== _ (~> (c-reg 0) (c-mul 1))) (c-add +) (-< _ _)))
+                    (c-loop (~>> (== _ (c-reg 0)) (c-add +) (-< _ _)))
                     (c-reg 0)
-                    (-< _ _)))
-       (c-mul 1)))
+                    (-< _ _)))))
 
 ;; τ = (X / (1 - X - X^2)) σ, where σ=1
 (define fib ((☯ sf) one)) 
 (probe (~>> (fib) (stream-take _ 20) stream->list))
 ;; '(0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181)
-
-
-;; sf can be simplified to (remove (mul 1)):
-;; (define-flow sf-simp
-;;   (~>> (c-loop (~>> (== _ (c-reg 0))
-;;                     (c-add +)
-;;                     (c-loop (~>> (== _ (c-reg 0)) (c-add +) (-< _ _)))
-;;                     (c-reg 0)
-;;                     (-< _ _)))
-;;        (c-mul 1)))
-;;
-;; (define fib-simp ((☯ sf-simp) one)) 
-;; (probe (~>> (fib) (stream-take _ 20) stream->list))
-;; ;; '(0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181)
