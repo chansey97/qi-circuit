@@ -39,14 +39,12 @@
 ;; Solving y' = f(y), the initial condition y(0) = y0
 
 (define (solve f y0 dt)
-  (~>> (zero)
-       (c-loop (~>> (== _ (~>> (c-reg y0)
-                               (map f _)
-                               (c-mul dt)
-                               (c-loop (~>> (== _ (c-reg y0)) (c-add +) (-< _ _)))
-                               ))
-                    2>
-                    (-< _ _)))
+  (~>> ()
+       (c-loop-gen (~>> (c-reg y0)
+                        (map f _)
+                        (c-mul dt)
+                        (c-loop (~>> (== _ (c-reg y0)) (c-add +) (-< _ _)))
+                        (-< _ _)))
        (c-reg y0)
        ))
 

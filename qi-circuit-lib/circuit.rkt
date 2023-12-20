@@ -5,7 +5,7 @@
 (require data/collection) ; use multiple params map
 ;; (require (for-syntax racket/base syntax/parse))
 
-(provide c-add c-mul c-convo c-reg (for-space qi c-loop))
+(provide c-add c-mul c-convo c-reg (for-space qi c-loop c-loop-gen))
 
 (define (c-add op)
   (λ (s1 s2)
@@ -31,3 +31,11 @@
 
 (define-qi-syntax-rule (c-loop sf)
   (esc (c-loop-proc (flow sf))))
+
+(define (c-loop-gen-proc f)
+  (λ _
+    (letrec-values ([(bs cs) (f (stream-lazy cs))])
+      bs)))
+
+(define-qi-syntax-rule (c-loop-gen sf)
+  (esc (c-loop-gen-proc (flow sf))))

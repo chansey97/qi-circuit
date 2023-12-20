@@ -11,7 +11,7 @@ are also referred to as signal flow graphs. Qi-circuit is a domain specific lang
 
 ## Core constructs
 
-A large circuit can be constructed by combining small circuits. Qi-circuit currently provides 5 types of basic circuits:
+A large circuit can be constructed by combining small circuits. Qi-circuit currently provides 6 basic circuits:
 
 - `(c-add op)` 
 
@@ -41,7 +41,9 @@ A large circuit can be constructed by combining small circuits. Qi-circuit curre
 
   <img src="image-20231218053014367.png" alt="image-20231218053014367" width="288" />
 
-  
+- `(c-loop-gen sf)` 
+
+  <img src="image-20231220133353173.png" alt="image-20231220133353173" width="274" />
 
 ## Behaviors
 

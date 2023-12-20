@@ -19,15 +19,12 @@
 ;; Let T is the generating function of Catalan numbers, T must satisfy the equation:
 ;; T = 1 + x T^2
 
-;; The circuit is similar to sf-4.21
-
-(define-flow sf-catalan
-  (~>> (c-loop (~>> (== _ (c-reg 0))
+(define catalan
+  (~>> (one)
+       (c-loop (~>> (== _ (c-reg 0))
                     (c-add +)
-                    (-< _ (~>> (-< _ _) c-convo))))))
+                    (-< _ (~>> (-< _ _) c-convo))))
+       ))
 
-(define catalan ((☯ sf-catalan) one))
 (probe (~>> (catalan) (stream-take _ 10) stream->list))
 ;; '(1 1 2 5 14 42 132 429 1430 4862)
-
-

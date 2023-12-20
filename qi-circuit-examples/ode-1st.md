@@ -4,7 +4,7 @@
 
 ![image-20231218064717141](figures/image-20231218064717141.png)
 
-On the surface, this diagram looks very different from the previous (it has only outputs but no inputs), yet it still has an equivalent circuit that is compatible with Qi-circuit.
+Translate the diagram to an equivalent circuit.
 
 step-1
 
@@ -22,25 +22,21 @@ step-4
 
 ![image-20231218065327507](figures/image-20231218065327507.png)
 
-step-5
-
-![image-20231218065357143](figures/image-20231218065357143.png)
+The outer loop has only outputs but no inputs, so use `c-loop-gen` instead of `c-loop`.
 
 ```
 (define (solve f y0 dt)
-  (~>> (zero)
-       (c-loop (~>> (== _ (~>> (c-reg y0)
-                               (map f _)
-                               (c-mul dt)
-                               (c-loop (~>> (== _ (c-reg y0)) (c-add +) (-< _ _)))
-                               ))
-                    2>
-                    (-< _ _)))
+  (~>> ()
+       (c-loop-gen (~>> (c-reg y0)
+                        (map f _)
+                        (c-mul dt)
+                        (c-loop (~>> (== _ (c-reg y0)) (c-add +) (-< _ _)))
+                        (-< _ _)))
        (c-reg y0)
        ))
 ```
 
-Note that this example also shows that you cannot treat `integral` as an independent component, because `(c-reg y0)` must be on the leftmost side of `sf` in the `c-loop`. Artificially adding a `(c-reg y0)` would result in a non-equivalent circuit.
+Note that this example also shows that you cannot treat `integral` as an independent component, because `(c-reg y0)` must be on the leftmost side of `sf` in the `c-loop` or `c-loop-gen`. Artificially adding a wrong `(c-reg y0)` would result in a non-equivalent circuit.
 
-![image-20231218070317557](figures/image-20231218070317557.png) 
+![image-20231220070604975](figures/image-20231220070604975.png)
 
