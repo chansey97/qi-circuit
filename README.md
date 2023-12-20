@@ -76,6 +76,7 @@ Note that equivalent circuits might look very different from the original circui
 
 - [Sum](qi-circuit-examples/sum.md)
 - [Integral](qi-circuit-examples/integral.md)
+- [Factorial](qi-circuit-examples/factorial.md)
 - [Fibonacci](qi-circuit-examples/fibonacci.md)
 - [Solving ODE 1](qi-circuit-examples/ode-1st.md)
 - [Solving ODE 2](qi-circuit-examples/ode-2nd.md)
