@@ -48,7 +48,7 @@ $F = X + F (X + X^2)$
 
 
 
-All the above circuits can be implemented using qi-circuit. The last circuit requires only one loop, so it should be more efficient. 
+All the above circuits can be implemented via Qi-circuit. The last circuit requires only one loop, so it should be more efficient. 
 
 Its equivalent Qi-circuit is
 
@@ -93,7 +93,7 @@ $F = (F + (FX + 1)) X$
 
 ![image-20231220132553877](figures/image-20231220132553877.png)
 
-
+This circuit seems more readable.
 
 
 
