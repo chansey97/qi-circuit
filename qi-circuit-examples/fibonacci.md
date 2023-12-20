@@ -16,7 +16,7 @@ However, the recursive equation can also be represented as circuits.
 
 For example,
 
-![image-20231220114409181](figures/image-20231220114409181.png)
+![image-20231220140125664](figures/image-20231220140125664.png)
 
 
 
@@ -26,19 +26,19 @@ As follows are other possible implementations:
 
 $F = (X + F X^2) + F X$
 
-![image-20231220114828139](figures/image-20231220114828139.png)
+![image-20231220140434941](figures/image-20231220140434941.png)
 
 
 
 $F = (F X + F X^2) + X$
 
-![image-20231220114934377](figures/image-20231220114934377.png)
+![image-20231220135853380](figures/image-20231220135853380.png)
 
 
 
 $F = (1 + F X + F) X$
 
-![image-20231220115250428](figures/image-20231220115250428.png)
+![image-20231220135548419](figures/image-20231220135548419.png)
 
 
 
