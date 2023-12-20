@@ -41,9 +41,13 @@ A large circuit can be constructed by combining small circuits. Qi-circuit curre
 
   <img src="image-20231218053014367.png" alt="image-20231218053014367" width="288" />
 
+  Feedback loop circuit
+
 - `(c-loop-gen sf)` 
 
   <img src="image-20231220133353173.png" alt="image-20231220133353173" width="274" />
+  
+  Feedback loop circuit (no need input)
 
 ## Behaviors
 
