@@ -17,7 +17,7 @@ let s = if(false -> pre s) then not off else on; tel
        ▽
        (c-loop (~>> (== △ (~>> (-< (gen false) (c-reg #f)) c-->))
                     (c-switch (% 3> _)
-                              [AND (~>> 2> NOT)]
+                              [_ (~>> 2> NOT)]
                               [else 1>])
                     (-< _ _)
                     ))))

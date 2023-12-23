@@ -21,7 +21,7 @@
        ▽
        (c-loop (~>> (== △ (~>> (-< (gen false) (c-reg #f)) c-->))
                     (c-switch (% 3> _)
-                              [AND (~>> 2> NOT)]
+                              [_ (~>> 2> NOT)]
                               [else 1>])
                     (-< _ _)
                     ))))
@@ -39,4 +39,3 @@
      bistable-switch
      stream->list)
 ;; '(#f #f #f #t #t #t #t #t #t #t #t #t #t #f #f #f #f #f #f #f #f #f #f #f #t #t #t #t #t #t #f #f #f #f #f #f #f)
-
