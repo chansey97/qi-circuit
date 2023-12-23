@@ -3,8 +3,10 @@
 (require qi)
 (require qi/probe)
 (require "../qi-circuit-lib/circuit.rkt")
+(provide false zero one ones positives nats)
 
-(provide (all-defined-out))
+;; #f #f ...
+(define false (stream-cons #f false))
 
 ;; 0
 
@@ -29,7 +31,6 @@
 (define ones ((☯ sf-4.17) one))
 ;; (probe (~>> (ones) (stream-take _ 10) stream->list))
 ;; '(1 1 1 1 1 1 1)
-
 
 ;; Rutten Example 4.21: τ = (1 / 1 - 2X) σ
 
@@ -58,6 +59,4 @@
 (define nats (~>> (positives) (c-reg 0)))
 ;; (probe (~>> (nats) (stream-take _ 10) stream->list))
 ;; '(0 1 2 3 4 5 6 7 8 9)
-
-
 

@@ -37,6 +37,12 @@ A large circuit can be constructed by combining small circuits. Qi-circuit curre
 
   Register circuit can be viewed as consisting of a one-place memory cell that initially contains the value `init`.
 
+- `c-->`
+
+  <img src="image-20231223151615811.png" alt="image-20231223151615811" width="200" />
+
+  Read as "followed by". Let `e` and `f` are streams, the `(c--> e f)` is a stream whose sequence is `(e0 f1 f2 ...)` .
+
 - `(c-loop sf)` 
 
   <img src="image-20231218053014367.png" alt="image-20231218053014367" width="288" />
@@ -48,6 +54,14 @@ A large circuit can be constructed by combining small circuits. Qi-circuit curre
   <img src="image-20231220133353173.png" alt="image-20231220133353173" width="274" />
   
   Feedback loop circuit (no need input)
+  
+- `(c-switch args)`
+
+  <img src="image-20231223150807313.png" alt="image-20231223150807313"  width="200" />
+
+  The syntax is the same as [switch](https://docs.racket-lang.org/qi/Language_Interface.html#%28form._%28%28lib._qi%2Fmain..rkt%29._switch%29%29), but based on stream.
+
+  
 
 ## Behaviors
 
@@ -81,6 +95,13 @@ Note that equivalent circuits might look very different from the original circui
 - [Solving ODE 1](qi-circuit-examples/ode-1st.md)
 - [Solving ODE 2](qi-circuit-examples/ode-2nd.md)
 - [Catalan numbers](qi-circuit-examples/catalan.md)
+- [Raising edge](qi-circuit-examples/raising-edge.md), [MinMax](qi-circuit-examples/minmax.md) [Bistable](qi-circuit-examples/bistable.md), [Counter](qi-circuit-examples/counter.md)
 
 
 
+## TODO
+
+- Add Clock
+- Work with multiple recursive variables in `c-loop`?
+- The current circuit is not conducive to modularization because Qi is strict in Racket. Try `#lang lazy`.
+- More examples

@@ -97,6 +97,33 @@ This circuit seems more readable.
 
 
 
+---
+
+An example from https://homepage.cs.uiowa.edu/~tinelli/classes/181/Spring10/Notes/03-lustre.pdf
+
+```
+f = 1 -> pre( f + (0 -> pre f));
+```
+
+It can be represented via circuit.
+
+![image-20231223141245848](figures/image-20231223141245848.png)
+
+```
+(define f
+  (~>> ()
+       (c-loop-gen (~>> (-< (gen ones) (c-reg 0))
+                        c-->
+                        (-< _ (~>> (c-reg 0) (-< (gen zero) _) c-->))
+                        (c-add +)
+                        (-< _ _)
+                        ))
+       (-< (gen ones) (c-reg 0))
+       c-->))
+```
+
+
+
 
 
 

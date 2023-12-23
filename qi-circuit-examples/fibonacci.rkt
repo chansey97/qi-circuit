@@ -45,6 +45,7 @@
 (probe (~>> (fib1) (stream-take _ 20) stream->list))
 ;; '(0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181)
 
+
 ;; F = (X + F X^2) + F X
 (define fib2
   (~>> (one)
@@ -58,6 +59,7 @@
 
 (probe (~>> (fib2) (stream-take _ 20) stream->list))
 ;; '(0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181)
+
 
 ;; F = (F X + F X^2) + X
 (define fib3
@@ -73,7 +75,6 @@
 
 (probe (~>> (fib3) (stream-take _ 20) stream->list))
 ;; '(0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181)
-
 
 
 ;; F = (1 + F X + F) X
@@ -100,3 +101,27 @@
 
 (probe (~>> (fib5) (stream-take _ 20) stream->list))
 ;; '(0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181)
+
+
+;; Lustre example
+
+;; Example from https://homepage.cs.uiowa.edu/~tinelli/classes/181/Spring10/Notes/03-lustre.pdf
+;; https://racket.discourse.group/t/qi-circuit-a-domain-specific-language-to-create-signal-flow-graphs/2610/9?u=chansey97
+
+;; f = 1 -> pre( f + (0 -> pre f));
+
+(define f
+  (~>> ()
+       (c-loop-gen (~>> (-< (gen ones) (c-reg 0))
+                        c-->
+                        (-< _ (~>> (c-reg 0) (-< (gen zero) _) c-->))
+                        (c-add +)
+                        (-< _ _)
+                        ))
+       (-< (gen ones) (c-reg 0))
+       c-->))
+
+(~>> (f)
+     (stream-take _ 20)
+     stream->list)
+;; '(1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765)
