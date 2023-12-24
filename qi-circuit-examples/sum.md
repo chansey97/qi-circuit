@@ -58,5 +58,5 @@ We would have two observations.
 
    ```
    (define-flow sf-4.17*
-     (~>> (c-loop (~>> (c-add +) (-< _ _) (== _ (c-reg 0)) )) (c-reg 0)))
+     (~>> (c-loop (~>> (== _ (c-reg 0)) (c-add +) (-< _ _)  )) (c-reg 0)))
    ```
