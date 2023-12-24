@@ -103,5 +103,7 @@ Note that equivalent circuits might look very different from the original circui
 
 - Add Clock
 - Work with multiple recursive variables in `c-loop`?
-- The current circuit is not conducive to modularization because Qi is strict in Racket. Try `#lang lazy`.
+- The current circuit is not conducive to modularization because Qi is strict in Racket. 
+  - Try `#lang lazy`.
+  - Try rewriting diagram in a macro expansion pass.
 - More examples
