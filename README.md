@@ -17,7 +17,7 @@ A large circuit can be constructed by combining small circuits. Qi-circuit curre
 
   <img src="image-20231218051343371.png" alt="image-20231218051343371" width="200" />
 
-  Adder circuit. The `op` is a binary operator that can be `+` or `*`.
+  Adder circuit. The `op` is a binary or multiple operator that can be `+` or `*`.
 
 - `(c-mul x)` 
 

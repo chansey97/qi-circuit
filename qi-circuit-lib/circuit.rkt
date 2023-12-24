@@ -19,8 +19,8 @@
 ;; data operators
 
 (define (c-add op)
-  (λ (s1 s2)
-    (map op s1 s2)))
+  (λ (s1 s2 . ss)
+    (apply map op (cons s1 (cons s2 ss)))))
 
 (define (c-mul x)
   (λ (s)
