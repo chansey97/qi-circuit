@@ -14,33 +14,23 @@ One way to solve the recursive equation is to use stream algorithms, i.e.
 
 However, the recursive equation can also be represented as circuits.
 
-For example,
+Note that there are many equivalent circuits for the same recursive equation. 
+
+For examples:
+
+$F = (X + F X) + F X^2$
 
 ![image-20231220140125664](figures/image-20231220140125664.png)
 
-
-
-Note that there are many equivalent circuits for the same recursive equation; this is just one of them. i.e. $F = (X + F X) + F X^2$. 
-
-As follows are other possible implementations:
+![image-20231225174303422](figures/image-20231225174303422.png)
 
 $F = (X + F X^2) + F X$
 
 ![image-20231220140434941](figures/image-20231220140434941.png)
 
+![image-20231225174402198](figures/image-20231225174402198.png)
 
-
-$F = (F X + F X^2) + X$
-
-![image-20231220135853380](figures/image-20231220135853380.png)
-
-
-
-$F = (1 + F X + F) X$
-
-![image-20231220135548419](figures/image-20231220135548419.png)
-
-
+At first glance, it seems that we have to use two `c-loop`s, but in fact, these two loops can be merged into one.
 
 $F = X + F (X + X^2)$
 
@@ -48,23 +38,36 @@ $F = X + F (X + X^2)$
 
 
 
-All the above circuits can be implemented via Qi-circuit. The last circuit requires only one loop, so it should be more efficient. 
-
-Its equivalent Qi-circuit is
-
 ![image-20231220115612955](figures/image-20231220115612955.png)
+
+Also, the two additions can be merge to one, because `(c-add +)` can work with multiple inputs.
+
+![image-20231225180034944](figures/image-20231225180034944.png)
 
 ```
 (define fib
   (~>> (one)
        (c-reg 0)
-       (c-loop (~>> (== _ (~>> (-< (c-reg 0) (~>> (c-reg 0) (c-reg 0))) (c-add +)))
+       (c-loop (~>> (== _ (~>> (-< (c-reg 0) (~>> (c-reg 0) (c-reg 0))) ))
                     (c-add +)
-                    (-< _ _)))))
-
-(probe (~>> (fib) (stream-take _ 20) stream->list))
+                    (-< _ _)))
+       ))
+       
+(~>> (fib) (stream-take _ 20) stream->list)
 ;; '(0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181)
 ```
+
+As follows are some other possible implementations:
+
+$F = (F X + F X^2) + X$
+
+![image-20231220135853380](figures/image-20231220135853380.png)
+
+$F = (1 + F X + F) X$
+
+![image-20231220135548419](figures/image-20231220135548419.png)
+
+All these circuits above are equivent circuits. In other words, the input $1$ can be replaced with other stream $\sigma$, see [rabbit-farming](rabbit-farming.md).
 
 
 

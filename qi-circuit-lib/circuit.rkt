@@ -63,8 +63,15 @@
   (esc (c-loop-gen-proc (flow sf))))
 
 ;; followed-by
-(define (c--> xs ys)
-  (stream-cons (stream-first xs) (stream-rest ys)))
+;; (define (c--> xs ys)
+;;   (stream-cons (stream-first xs) (stream-rest ys)))
+(define (c--> s1 s2)
+  (match/values (values s1 s2)
+    [((sequence) (sequence)) empty-stream]
+    [((sequence) (sequence y ys ...)) ys]
+    [((sequence x xs ...) (sequence)) (stream-cons x empty-stream)]
+    [((sequence x xs ...) (sequence y ys ...)) (stream-cons x ys)]
+    ))
 
 (define-qi-syntax-rule (c-switch args ...)
   (esc (λ xss
