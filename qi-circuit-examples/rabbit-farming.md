@@ -105,5 +105,5 @@ We have known how to translate these recursive equations to Qi-circuit in [Fibon
                     (-< _ _)))))
 ```
 
-
+P.S. Another way to solve this is [Power series, power serious](https://www.cambridge.org/core/journals/journal-of-functional-programming/article/power-series-power-serious/19863F4EAACC33E1E01DE2A2114EC7DF).
 
