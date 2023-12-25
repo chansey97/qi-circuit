@@ -2,11 +2,11 @@
 
 [Rutten Example 4.17](https://core.ac.uk/download/pdf/82555621.pdf) shows the circuit:
 
-![image-20231218045620324](figures/image-20231218045620324.png)
+<img src="figures/image-20231218045620324.png" alt="image-20231218045620324" width=33% />
 
 The corresponding Qi-circuit is 
 
-![image-20231218045648350](figures/image-20231218045648350.png)
+<img src="figures/image-20231218045648350.png" alt="image-20231218045648350" width=50% />
 
 ```
 (define-flow sum1
@@ -19,7 +19,7 @@ We would have two observations.
 
    If you write it like this
 
-   ![image-20231218054339024](figures/image-20231218054339024.png)
+   <img src="figures/image-20231218054339024.png" alt="image-20231218054339024" width=50% />
 
    ```
    (define-flow sum1
@@ -62,7 +62,7 @@ We would have two observations.
    
    The circuit of `sum2` is:
    
-   ![image-20231218055824859](figures/image-20231218055824859.png)
+   <img src="figures/image-20231218055824859.png" alt="image-20231218055824859" width=50% />
    
    ```
    (define (sum2 init)
@@ -73,7 +73,7 @@ We would have two observations.
    
    Note that, in Haskell, there is also `scanl1`, which corresponds to the following circuit:
    
-   ![image-20231226041003004](figures/image-20231226041003004.png)
+   <img src="figures/image-20231226041003004.png" alt="image-20231226041003004" width=50%/>
    
    ```
    (define (sum3)

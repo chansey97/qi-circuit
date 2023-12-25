@@ -2,27 +2,25 @@
 
 [SICP Figure 3.32](https://web.mit.edu/6.001/6.037/sicp.pdf) introduces the integral procedure viewed as a signal processing system:
 
-![image-20231218060239436](figures/image-20231218060239436.png)
+<img src="figures/image-20231218060239436.png" alt="image-20231218060239436" width=50% />
 
 This diagram cannot be directly written in Qi-circuit, but it can be translated to an equivalent circuit.
 
 step-1
 
-![image-20231218060406066](figures/image-20231218060406066.png)
+<img src="figures/image-20231218060406066.png" alt="image-20231218060406066" width=50% />
 
 step-2
 
-![image-20231218060431346](figures/image-20231218060431346.png)
+<img src="figures/image-20231218060431346.png" alt="image-20231218060431346" width=50% />
 
 step-3
 
-![image-20231218060454627](figures/image-20231218060454627.png)
+<img src="figures/image-20231218060454627.png" alt="image-20231218060454627" width=50% />
 
 step-4
 
-
-
-![image-20231218060521490](figures/image-20231218060521490.png)
+<img src="figures/image-20231218060521490.png" alt="image-20231218060521490" width=70% />
 
 ```
 (define (integral init dt)

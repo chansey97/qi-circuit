@@ -1,6 +1,6 @@
 # Factorial
 
-![image-20231220064158437](figures/image-20231220064158437.png)
+<img src="figures/image-20231220064158437.png" alt="image-20231220064158437" width=50% />
 
 ```
 ;; factorial = product

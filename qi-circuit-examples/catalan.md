@@ -4,13 +4,11 @@
 
 This equation can be translated to the circuit.
 
-![image-20231220060056292](figures/image-20231220060056292.png)
+<img src="figures/image-20231220060056292.png" alt="image-20231220060056292" width=33% />
 
 step-1
 
-
-
-![image-20231220060156324](figures/image-20231220060156324.png)
+<img src="figures/image-20231220060156324.png" alt="image-20231220060156324" width=70% />
 
 ```
 (define catalan

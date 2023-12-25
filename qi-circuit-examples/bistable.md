@@ -7,9 +7,7 @@ node Switch(on,off: bool) returns (s: bool);
 let s = if(false -> pre s) then not off else on; tel
 ```
 
-![image-20231223144005731](figures/image-20231223144005731.png)
-
-
+<img src="figures/image-20231223144005731.png" alt="image-20231223144005731" width=50% />
 
 ```
 (define (bistable-switch on off)

@@ -11,7 +11,7 @@ tel
 
 
 
-![image-20231223142503550](figures/image-20231223142503550.png)
+<img src="figures/image-20231223142503550.png" alt="image-20231223142503550" width=50% />
 
 ```
 (define-flow edge
