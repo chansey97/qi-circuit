@@ -14,9 +14,7 @@ One way to solve the recursive equation is to use stream algorithms, i.e.
 
 However, the recursive equation can also be represented as circuits.
 
-Note that there are many equivalent circuits for the same recursive equation. 
-
-For examples:
+For example:
 
 $F = (X + F X) + F X^2$
 
@@ -24,13 +22,15 @@ $F = (X + F X) + F X^2$
 
 <img src="figures/image-20231225174303422.png" alt="image-20231225174303422" width=75%/>
 
+Note that there are many equivalent circuits for the same recursive equation. 
+
 $F = (X + F X^2) + F X$
 
 <img src="figures/image-20231220140434941.png" alt="image-20231220140434941" width=50% />
 
 <img src="figures/image-20231225174402198.png" alt="image-20231225174402198" width=75% />
 
-At first glance, it seems that we have to use two `c-loop`s, but in fact, these two loops can be merged into one.
+At first glance, it seems that we have to use two `c-loop`s, but these two loops can be merged into one.
 
 $F = X + F (X + X^2)$
 
@@ -40,7 +40,7 @@ $F = X + F (X + X^2)$
 
 <img src="figures/image-20231220115612955.png" alt="image-20231220115612955" width=75% />
 
-Also, the two additions can be merge to one, because `(c-add +)` can work with multiple inputs.
+Also, the two additions can also be merge to one, because `(c-add +)` supports multiple inputs.
 
 <img src="figures/image-20231225180034944.png" alt="image-20231225180034944" width=75% />
 
@@ -67,7 +67,7 @@ $F = (1 + F X + F) X$
 
 <img src="figures/image-20231220135548419.png" alt="image-20231220135548419" width=50% />
 
-All these circuits above are equivent circuits. In other words, the input $1$ can be replaced with other stream $\sigma$, see [rabbit-farming](rabbit-farming.md).
+All these circuits above are equivent circuits. Even the input $1$ can be replaced with other stream $\sigma$, see [rabbit-farming](rabbit-farming.md).
 
 
 
@@ -102,13 +102,13 @@ This circuit seems more readable.
 
 ---
 
-An example from https://homepage.cs.uiowa.edu/~tinelli/classes/181/Spring10/Notes/03-lustre.pdf
+An example of Fibonacci from https://homepage.cs.uiowa.edu/~tinelli/classes/181/Spring10/Notes/03-lustre.pdf
 
 ```
-f = 1 -> pre( f + (0 -> pre f));
+f = 1 -> pre(f + (0 -> pre f));
 ```
 
-It can be represented via circuit.
+Represents as a circuit.
 
 <img src="figures/image-20231223141245848.png" alt="image-20231223141245848" width=75% />
 

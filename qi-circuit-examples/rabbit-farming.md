@@ -71,7 +71,7 @@ By diagrammatic reasoning, it can be rewired into the following two signal flow 
 
 ![](https://graphicallinearalgebra.files.wordpress.com/2016/09/rfib.gif?w=531)
 
-We have no diagrammatic reasoning like Pawel's settings, but can still obtain these two signal flow diagrams by manipulating the generated function equations. Let the input sequence is $\sigma$, the output sequence is $\tau$, then
+We have no diagrammatic reasoning like Pawel's settings, but can still obtain these two signal flow diagrams by manipulating the generated function equations. Let the input sequence is $\sigma$ and the output sequence is $\tau$, then
 
 **"forward" Fibonacci** 
 
@@ -85,7 +85,7 @@ $$\sigma= \large \frac {1 -x - x^2}  {1 + x} \tau  $$
 
 $$\Rightarrow \sigma = \tau (1 - x - x^2) -\sigma x$$
 
-We have known how to translate these recursive equations to Qi-circuit in [Fibonacci](fibonacci.md):
+From [Fibonacci](fibonacci.md), we have known how to translate these kinds of recursive equations into Qi-circuit:
 
 ```
 (define-flow ffib
@@ -105,5 +105,5 @@ We have known how to translate these recursive equations to Qi-circuit in [Fibon
                     (-< _ _)))))
 ```
 
-P.S. Another way to solve this is [Power series, power serious](https://www.cambridge.org/core/journals/journal-of-functional-programming/article/power-series-power-serious/19863F4EAACC33E1E01DE2A2114EC7DF).
+P.S. Another way to solve it is [Power series, power serious](https://www.cambridge.org/core/journals/journal-of-functional-programming/article/power-series-power-serious/19863F4EAACC33E1E01DE2A2114EC7DF).
 

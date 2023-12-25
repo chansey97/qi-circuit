@@ -22,7 +22,7 @@ step-4
 
 <img src="figures/image-20231218065327507.png" alt="image-20231218065327507" width=75% />
 
-The outer loop has only outputs but no inputs, so use `c-loop-gen` instead of `c-loop`.
+Since the outer loop has only outputs but no inputs, use `c-loop-gen` instead of `c-loop`.
 
 ```
 (define (solve f y0 dt)

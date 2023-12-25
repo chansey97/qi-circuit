@@ -40,7 +40,7 @@ step-8
 
 <img src="figures/image-20231220072945946.png" alt="image-20231220072945946"/>
 
-The outer loop has only outputs but no inputs, so use `c-loop-gen` instead of `c-loop`.
+Since the outer loop has only outputs but no inputs, use `c-loop-gen` instead of `c-loop`.
 
 ```
 (define (solve-2nd a b y0 dy0 dt)
