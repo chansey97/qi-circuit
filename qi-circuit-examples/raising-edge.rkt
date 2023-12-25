@@ -3,7 +3,8 @@
 (require qi)
 (require qi/probe)
 (require "../qi-circuit-lib/circuit.rkt")
-(require "./basic-streams.rkt")
+(require "../qi-circuit-lib/basic-streams.rkt")
+(require rackunit rackunit/text-ui)
 
 ;; Example from https://homepage.cs.uiowa.edu/~tinelli/classes/181/Spring10/Notes/03-lustre.pdf
 
@@ -57,9 +58,14 @@
        (-< (gen false) _)
        c-->))
 
-(~>> ((stream #t #f #t #f #f #f #t #t #t #f #t #t #t #t #t))
-     edge
-     (map (λ (b) (if b 1 0)) _)
-     stream->list)
-;; '(0 0 1 0 0 0 1 0 0 0 1 0 0 0 0)
+(define (bool->bin b)
+  (if b 1 0))
+
+(check-equal?
+ (~>> ((stream #t #f #t #f #f #f #t #t #t #f #t #t #t #t #t))
+      edge
+      (map bool->bin _)
+      stream->list)
+ '(0 0 1 0 0 0 1 0 0 0 1 0 0 0 0))
+
 

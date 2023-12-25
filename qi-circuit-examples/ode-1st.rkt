@@ -1,10 +1,10 @@
 #lang racket
-
 (require data/collection)
 (require qi)
 (require qi/probe)
 (require "../qi-circuit-lib/circuit.rkt")
-(require "basic-streams.rkt")
+(require "../qi-circuit-lib/basic-streams.rkt")
+(require rackunit)
 
 ;; SICP 3.5.3 Exploiting the Stream Paradigm
 ;; 
@@ -61,8 +61,5 @@
     (stream-ref (solve f y0 dt) (inexact->exact (round (* t precision)))) 
     ))
 
-(solved-y 1)
-;; 2.716923932235896
-
-
+(check-equal? (solved-y 1) 2.716923932235896)
 

@@ -1,8 +1,6 @@
 #lang racket
-
 (require qi)
 (require qi/probe)
-
 ;; In qi-circuit-lib, DO NOT use `map` in data/collection, because for finite stream,
 ;; it requres all the sequences have the same length, which is inconvenient,
 ;; use `stream-map*` in stream-zip.rkt instead.

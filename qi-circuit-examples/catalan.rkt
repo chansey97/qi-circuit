@@ -1,9 +1,9 @@
 #lang racket
-
 (require qi)
 (require qi/probe)
 (require "../qi-circuit-lib/circuit.rkt")
-(require "basic-streams.rkt")
+(require "../qi-circuit-lib/basic-streams.rkt")
+(require rackunit)
 
 ;; Catalan numbers
 
@@ -26,5 +26,6 @@
                     (-< _ (~>> (-< _ _) c-convo))))
        ))
 
-(probe (~>> (catalan) (stream-take _ 10) stream->list))
-;; '(1 1 2 5 14 42 132 429 1430 4862)
+(check-equal?
+ (~>> (catalan) (stream-take _ 10) stream->list)
+ '(1 1 2 5 14 42 132 429 1430 4862))

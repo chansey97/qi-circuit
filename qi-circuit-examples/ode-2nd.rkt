@@ -1,9 +1,9 @@
 #lang racket
-
 (require qi)
 (require qi/probe)
 (require "../qi-circuit-lib/circuit.rkt")
-(require "basic-streams.rkt")
+(require "../qi-circuit-lib/basic-streams.rkt")
+(require rackunit)
 
 ;; SICP 3.5.3 Exercise 3.78
 
@@ -82,5 +82,4 @@
     (stream-ref (solve-2nd a b y0 2 dt) (inexact->exact (round (* t precision)))))
   )
 
-(solve-y-2nd 1)
-;; 3.385241242344665
+(check-equal? (solve-y-2nd 1) 3.385241242344665)

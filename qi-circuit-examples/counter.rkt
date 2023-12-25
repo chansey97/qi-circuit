@@ -3,7 +3,8 @@
 (require qi)
 (require qi/probe)
 (require "../qi-circuit-lib/circuit.rkt")
-(require "./basic-streams.rkt")
+(require "../qi-circuit-lib/basic-streams.rkt")
+(require rackunit)
 
 ;; Example from https://homepage.cs.uiowa.edu/~tinelli/classes/181/Spring10/Notes/03-lustre.pdf
 
@@ -35,11 +36,13 @@
 (define (bin->bool n)
   (if (= n 0) #f #t))
 
-(~>> ((stream 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0)
-      (stream 0 1 1 0 0 1 1 1 1 1 0 1 0 1 1 0 0 0 0 0))
-     (== (map bin->bool _) (map bin->bool _))
-     counter
-     stream->list)
+(check-equal?
+ (~>> ((stream 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0)
+       (stream 0 1 1 0 0 1 1 1 1 1 0 1 0 1 1 0 0 0 0 0))
+      (== (map bin->bool _) (map bin->bool _))
+      counter
+      stream->list)
+ '(0 1 2 2 2 3 0 1 2 3 3 4 0 1 2 2 2 2 2 2))
 
 ;; r '(0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0)
 ;; x '(0 1 1 0 0 1 1 1 1 1 0 1 0 1 1 0 0 0 0 0)

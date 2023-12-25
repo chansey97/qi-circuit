@@ -3,7 +3,8 @@
 (require qi)
 (require qi/probe)
 (require "../qi-circuit-lib/circuit.rkt")
-(require "basic-streams.rkt")
+(require "../qi-circuit-lib/basic-streams.rkt")
+(require rackunit)
 
 ;; Example from https://homepage.cs.uiowa.edu/~tinelli/classes/181/Spring10/Notes/03-lustre.pdf
 
@@ -47,13 +48,15 @@
 (define-flow minmax
   (-< min max))
 
-(probe (~>> ((stream 1 2 1 1))
-            minmax
-            (== (~>> (stream-take _ 4) stream->list)
-                (~>> (stream-take _ 4) stream->list))
-            ))
-;; '(1 1 1 1)
-;; '(1 2 2 2)
+
+(check-equal?
+ (~>> ((stream 1 2 1 1))
+      minmax
+      (== (~>> (stream-take _ 4) stream->list)
+          (~>> (stream-take _ 4) stream->list))
+      ▽)
+ (list '(1 1 1 1)
+       '(1 2 2 2)))
 
 
 ;; Method 2, do not use +inf.0 and -inf.0, use "followed by", i.e. c--> instead
@@ -83,10 +86,11 @@
 (define-flow minmax*
   (-< min max))
 
-(probe (~>> ((stream 1 2 1 1))
-            minmax
+(check-equal?
+ (~>> ((stream 1 2 1 1))
+            minmax*
             (== (~>> (stream-take _ 4) stream->list)
                 (~>> (stream-take _ 4) stream->list))
-            ))
-;; '(1 1 1 1)
-;; '(1 2 2 2)
+            ▽)
+ (list '(1 1 1 1)
+       '(1 2 2 2)))
