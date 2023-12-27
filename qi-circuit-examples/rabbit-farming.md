@@ -87,6 +87,8 @@ $$\Rightarrow \sigma = \tau (1 - x - x^2) -\sigma x$$
 
 From [Fibonacci](fibonacci.md), we have known how to translate these kinds of recursive equations into Qi-circuit:
 
+<img src="figures/image-20231227095824196.png" alt="image-20231227095824196" width=100%  />
+
 ```
 (define-flow ffib
   (~>> (-< _ (c-reg 0))
@@ -96,6 +98,8 @@ From [Fibonacci](fibonacci.md), we have known how to translate these kinds of re
                     (-< _ _)))))
 ```
 
+<img src="figures/image-20231227095909389.png" alt="image-20231227095909389" width=100%  />
+
 ```
 (define-flow rfib
   (~>> (-< _ (~>> (c-reg 0) (c-mul -1)) (~>> (c-reg 0) (c-reg 0) (c-mul -1)))
@@ -104,6 +108,8 @@ From [Fibonacci](fibonacci.md), we have known how to translate these kinds of re
                     (c-add +)
                     (-< _ _)))))
 ```
+
+---
 
 P.S. Another way to solve it is [Power series, power serious](https://www.cambridge.org/core/journals/journal-of-functional-programming/article/power-series-power-serious/19863F4EAACC33E1E01DE2A2114EC7DF).
 
