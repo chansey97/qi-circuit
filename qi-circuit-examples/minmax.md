@@ -11,7 +11,7 @@ let
 tel
 ```
 
-<img src="figures/image-20231223153555572.png" alt="image-20231223153555572" width=50% />
+<img src="figures/minmax.png" alt="minmax" width=50% />
 
 ```
 (define-flow min

@@ -15,49 +15,49 @@ A large circuit can be constructed by combining small circuits. Qi-circuit curre
 
 - `(c-add op)` 
 
-  <img src="image-20231218051343371.png" alt="image-20231218051343371" width="200" />
+  <img src="c-add.png" alt="c-add" width="200" />
 
   Adder circuit. The `op` is a binary or multiple operator that can be `+` or `*`.
 
 - `(c-mul x)` 
 
-  <img src="image-20231218051622354.png" alt="image-20231218051622354" width="200" />
+  <img src="c-mul.png" alt="c-mul" width="200" />
 
   Multiplier circuit scales the input stream by x times.
 
 - `(c-convo s1 s2)` 
 
-  <img src="image-20231218051729154.png" alt="image-20231218051729154" width="200" />
+  <img src="c-convo.png" alt="c-convo" width="200" />
 
   Convolution circuit.
 
 - `(c-reg init)` 
 
-  <img src="image-20231218092559434.png" alt="image-20231218092559434" width="200" />
+  <img src="c-reg.png" alt="c-reg" width="200" />
 
   Register circuit can be viewed as consisting of a one-place memory cell that initially contains the value `init`.
 
 - `c-->`
 
-  <img src="image-20231223151615811.png" alt="image-20231223151615811" width="200" />
+  <img src="c-followed-by.png" alt="c-followed-by" width="200" />
 
   Read as "followed by". Let `e` and `f` are streams, the `(c--> e f)` is a stream whose sequence is `(e0 f1 f2 ...)` .
 
 - `(c-loop sf)` 
 
-  <img src="image-20231218053014367.png" alt="image-20231218053014367" width="288" />
+  <img src="c-loop.png" alt="c-loop" width="288" />
 
   Feedback loop circuit
 
 - `(c-loop-gen sf)` 
 
-  <img src="image-20231220133353173.png" alt="image-20231220133353173" width="274" />
+  <img src="c-loop-gen.png" alt="c-loop-gen" width="274" />
   
   Feedback loop circuit (no need input)
   
 - `(c-switch args)`
 
-  <img src="image-20231223150807313.png" alt="image-20231223150807313"  width="200" />
+  <img src="c-switch.png" alt="c-switch"  width="200" />
 
   The syntax is the same as [switch](https://docs.racket-lang.org/qi/Language_Interface.html#%28form._%28%28lib._qi%2Fmain..rkt%29._switch%29%29), but based on stream.
 
@@ -67,13 +67,13 @@ A large circuit can be constructed by combining small circuits. Qi-circuit curre
 
 Although any Qi flow can be viewed a circuit as long as the inputs and outputs are streams, it's better to think of the inputs and outputs as signals, at time moments 0, 1, 2, ... For example:
 
-<img src="image-20231218035840532.png" alt="image-20231218035840532" width="200" />
+<img src="behv-c-add.png" alt="behv-c-add" width="200" />
 
 The  $\sigma$, $\tau$, $\rho$ are streams, but you should think of them as signals. At moment $n \geq 0$, the adder simultaneously inputs the values $\sigma_n$ and $\tau_n$ at its input ends,and outputs their sum $\rho_n = \sigma_n + \tau_n$ at its output end.
 
 Moreover, even though Qi-circuit is a purely functional programming language (i.e. no side effect), it's better to pretend that the circuits have memory. For example:
 
-<img src="image-20231218034832408.png" alt="image-20231218034832408" width="200" />
+<img src="behv-c-reg.png" alt="behv-c-reg" width="200" />
 
 The register starts its activity, at time moment 0, by outputting its value 0 at its output end, while it simultaneously inputs the value $\sigma_0$ at its input end, which is stored in the memory cell. At any future time moment $n \geq 1$, the value $\tau_n=\sigma_{n-1}$ is output and the value $\sigma_{n}$ is input and stored.
 

@@ -10,7 +10,7 @@ let
 tel
 ```
 
-<img src="figures/image-20231223145316713.png" alt="image-20231223145316713" width=50% />
+<img src="figures/counter.png" alt="counter" width=50% />
 
 ```
 (define (counter reset x)

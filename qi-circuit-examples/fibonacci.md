@@ -18,31 +18,31 @@ For example:
 
 $F = (X + F X) + F X^2$
 
-<img src="figures/image-20231220140125664.png" alt="image-20231220140125664" width=50% />
+<img src="figures/fib-1.png" alt="fib-1" width=50% />
 
-<img src="figures/image-20231225174303422.png" alt="image-20231225174303422" width=75%/>
+<img src="figures/fib-2.png" alt="fib-2" width=75%/>
 
 Note that there are many equivalent circuits for the same recursive equation. 
 
 $F = (X + F X^2) + F X$
 
-<img src="figures/image-20231220140434941.png" alt="image-20231220140434941" width=50% />
+<img src="figures/fib-3.png" alt="fib-3" width=50% />
 
-<img src="figures/image-20231225174402198.png" alt="image-20231225174402198" width=75% />
+<img src="figures/fib-4.png" alt="fib-4" width=75% />
 
 At first glance, it seems that we have to use two `c-loop`s, but these two loops can be merged into one.
 
 $F = X + F (X + X^2)$
 
-<img src="figures/image-20231220115342196.png" alt="image-20231220115342196" width=50% />
+<img src="figures/fib-5.png" alt="fib-5" width=50% />
 
 
 
-<img src="figures/image-20231220115612955.png" alt="image-20231220115612955" width=75% />
+<img src="figures/fib-6.png" alt="fib-6.png" width=75% />
 
 Also, the two additions can also be merge to one, because `(c-add +)` supports multiple inputs.
 
-<img src="figures/image-20231225180034944.png" alt="image-20231225180034944" width=75% />
+<img src="figures/fib-7.png" alt="fib-7" width=75% />
 
 ```
 (define fib
@@ -61,11 +61,11 @@ As follows are some other possible implementations:
 
 $F = (F X + F X^2) + X$
 
-<img src="figures/image-20231220135853380.png" alt="image-20231220135853380" width=50% />
+<img src="figures/fib-8.png" alt="fib-8" width=50% />
 
 $F = (1 + F X + F) X$
 
-<img src="figures/image-20231220135548419.png" alt="image-20231220135548419" width=50% />
+<img src="figures/fib-9.png" alt="fib-9" width=50% />
 
 All these circuits above are equivent circuits. Even the input $1$ can be replaced with other stream $\sigma$, see [rabbit-farming](rabbit-farming.md).
 
@@ -90,11 +90,11 @@ This stream corresponds to the following circut.
 
 $F = (F + (FX + 1)) X$
 
-<img src="figures/image-20231220132518110.png" alt="image-20231220132518110" width=75% />
+<img src="figures/fib-10.png" alt="fib-10" width=75% />
 
 
 
-<img src="figures/image-20231220132553877.png" alt="image-20231220132553877" width=75% />
+<img src="figures/fib-11.png" alt="fib-11" width=75% />
 
 This circuit seems more readable.
 
@@ -110,7 +110,7 @@ f = 1 -> pre(f + (0 -> pre f));
 
 Represents as a circuit.
 
-<img src="figures/image-20231223141245848.png" alt="image-20231223141245848" width=75% />
+<img src="figures/fib-12.png" alt="fib-12" width=75% />
 
 ```
 (define f

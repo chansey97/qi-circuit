@@ -87,7 +87,7 @@ $$\Rightarrow \sigma = \tau (1 - x - x^2) -\sigma x$$
 
 From [Fibonacci](fibonacci.md), we have known how to translate these kinds of recursive equations into Qi-circuit:
 
-<img src="figures/image-20231227095824196.png" alt="image-20231227095824196" width=100%  />
+<img src="figures/rabbit-farming-ffib.png" alt="rabbit-farming-ffib" width=100%  />
 
 ```
 (define-flow ffib
@@ -98,7 +98,7 @@ From [Fibonacci](fibonacci.md), we have known how to translate these kinds of re
                     (-< _ _)))))
 ```
 
-<img src="figures/image-20231227095909389.png" alt="image-20231227095909389" width=100%  />
+<img src="figures/rabbit-farming-rfib.png" alt="rabbit-farming-rfib" width=100%  />
 
 ```
 (define-flow rfib
