@@ -107,6 +107,7 @@ Note that equivalent circuits might look very different from the original circui
 - Multiple streams vs One stream of values (with zip, unzip)
   - The former is Qi-circuit
   - The latter is Arrow SF (need lazy pattern matching for `values`?)
+  - Multiplex in one stream?
 - The current circuit is not conducive to modularization because Qi is strict in Racket. 
   - Try `#lang lazy` (need lazy pattern matching for `values`?)
   - Try rewriting diagram in a macro expansion pass.
